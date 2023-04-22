@@ -3,7 +3,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Searchbar from 'components/Searchbar/Searchbar';
 import ImageGallery from 'components/ImageGallery/ImageGallery';
-import s from 'components/Styles.module.css';
+import css from 'components/Styles.module.css';
 import Button from 'components/Button/Button';
 import pixabayApi from 'components/Api/Api';
 
@@ -98,7 +98,8 @@ export default class App extends Component {
   };
 
   render() {
-    const { query, showModal, modalImg, modalAlt, error, status } = this.state;
+    const { query, showModal, modalImg, modalAlt, error, status, page } =
+      this.state;
 
     if (status === 'idle') {
       return (
@@ -125,7 +126,7 @@ export default class App extends Component {
         <div>
           <Searchbar onSubmit={this.handleSubmitInput} />
           {query.length > 0 && <ImageGallery query={query} />}
-          <Spinner className={s.Loader} />
+          <Spinner className={css.Loader} />
         </div>
       );
     }
@@ -148,7 +149,9 @@ export default class App extends Component {
               onClickImg={this.handleClickImg}
               query={this.state.query}
             />
-            <Button handleClickBtn={this.handleClickBtn} />
+            {query.length / 12 === page && (
+              <Button handleClickBtn={this.handleClickBtn} />
+            )}
           </div>
         </>
       );

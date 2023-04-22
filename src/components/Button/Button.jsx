@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
-import s from 'components/Styles.module.css';
+import css from 'components/Styles.module.css';
 
 function Button({ handleClickBtn }) {
   return (
-    <button className={s.Button} type="button" onClick={handleClickBtn}>
+    <button className={css.Button} type="button" onClick={handleClickBtn}>
       Load more
     </button>
   );

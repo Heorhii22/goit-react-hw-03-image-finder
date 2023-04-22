@@ -5,7 +5,7 @@ import pixabayApi from 'components/Api/Api';
 import ImageGalleryItem from 'components/ImageGalleryItem';
 import Button from 'components/Button/Button';
 
-import s from 'components/Styles.module.css';
+import css from 'components/Styles.module.css';
 import Spinner from 'components/Loader/Spinner';
 
 class ImageGallery extends Component {
@@ -79,7 +79,7 @@ class ImageGallery extends Component {
     if (status === 'pending') {
       return (
         <>
-          <ul className={s.imageGallery}>
+          <ul className={css.imageGallery}>
             {gallery.map(({ id, webformatURL, largeImageURL, tags }) => {
               return (
                 <ImageGalleryItem
@@ -92,7 +92,7 @@ class ImageGallery extends Component {
               );
             })}
           </ul>
-          <Spinner className={s.Loader} />
+          <Spinner className={css.Loader} />
         </>
       );
     }
@@ -104,7 +104,7 @@ class ImageGallery extends Component {
     if (status === 'resolved') {
       return (
         <>
-          <ul className={s.imageGallery}>
+          <ul className={css.imageGallery}>
             {gallery.map(({ id, webformatURL, largeImageURL, tags }) => {
               return (
                 <ImageGalleryItem
@@ -118,7 +118,7 @@ class ImageGallery extends Component {
             })}
           </ul>
           <Button
-            className={s.Button}
+            className={css.Button}
             handleClickBtn={() => {
               this.setState({ status: 'pending' });
               handleClickBtn();

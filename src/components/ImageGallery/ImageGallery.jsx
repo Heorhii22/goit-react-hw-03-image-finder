@@ -1,14 +1,20 @@
 import PropTypes from 'prop-types';
 
 import ImageGalleryItem from 'components/ImageGalleryItem/ImageGalleryItem';
-import s from 'components/Styles.module.css';
+import css from 'components/Styles.module.css';
 
 function ImageGallery({ query, onClickImg }) {
   return (
-    <ul className={s.ImageGallery}>
+    <ul className={css.ImageGallery}>
       {query.map(({ id, webformatURL, largeImageURL, tags }) => {
         return (
-          <ImageGalleryItem key={id} src={webformatURL} tags={tags} dataSrc={largeImageURL} onClick={onClickImg} />
+          <ImageGalleryItem
+            key={id}
+            src={webformatURL}
+            tags={tags}
+            dataSrc={largeImageURL}
+            onClick={onClickImg}
+          />
         );
       })}
     </ul>
